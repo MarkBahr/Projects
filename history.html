@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf8"/>
+<meta name="keywords" content="Javascript, HTML5, History, American Revolution, Quiz"/>
+<meta name="author" content="Mark Bahr"/>
+<link href="image/style.css" type="text/css" rel="stylesheet">
+<title>Revolution Quiz Form</title>
+</head>
+
+<body>
+
+<!-- Navbar Components-->
+<div class="navbar">
+	<a href="index.html">Home</a>
+	<!-- <a href="sql.html">SQL</a> -->
+	<div class="dropdown">
+		<button class="dropbtn">Web Apps
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="matching-game/index.html">Matching Game: U.S. Presidents</a>
+			<a href="pig-game/index.html">Pig Game</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Web
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="history.html">Revolution Quiz</a>
+			<a href="art.html">Art Gallery</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Console
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<!-- <a href="vacation.html">Vacation Planner (Java)</a> -->
+			<a href="shoppingbill.html">Shopping Calculator (Java)</a>
+			<a href="road.html">Road Building Costs (C++)</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">GUI
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="todolist.html">To Do List (JavaFX)</a>
+			<!-- <a href="matchinggame.html">Super Matching Game (Java)</a>
+			<a href="wguproject.html">WGU C++ Project</a> -->
+		</div>
+	</div>
+</div>
+
+<header> <h1 class="small">American Revolution Quiz</h1>
+<h2 class="small">Scoring with Forms & Javascript</h2>
+</header>
+
+<!--(this commented code will be included in the future to add the ability to send scores to a teacher)
+<h3>Enter Your Information (Optional) </h3>
+<div class="email1">
+<form method="post" action="friends.php">
+<p>Your Name: <input type="text" name="yourName" size="40"/>
+</p>
+<p>Your E-mail: <input type="text" name="sendername" size="55"/>
+</p>
+<p>Your Teacher's E-mail: <input type="text" name="email[]" size="55"/>
+</p>
+</form>
+</div>
+-->
+
+<form id="formQuizRev">
+
+<h3>Making a Simple Quiz</h3>
+
+<p>The form tag is important for quizzes or any web form. An important aspect of forms that this quiz uses is the radio button. Each correct answer was given a value of one and the others were given a value
+of zero. Also, the ability to only choose one correct answer is done by giving each set of radio buttons the same name. These names are referenced in the 
+Javascript for scoring purposes. If you wish to see the source code for this page, simply right click and choose "view page source." 
+</p>
+
+<p>This quiz uses Javascript to scoring capablilty. After answering all the questions, press the submit button and it will show you your 
+score. If you wish to re-take the quiz, simply click "reset" and start over.
+</p>
+
+<hr style="width:80%; height:5px;"/>
+</br>
+
+<p class=italic>This quiz will check your knowledge on a few of the main events surrounding the American Revolution.
+</p>
+
+<h3>Multiple Choice: Choose the best answer.</h3>
+
+<p>1. This law passed by parliament allowed a certain British company to not pay certain duties so it could sell tea to Americans at a cheaper price.
+</p>
+<label>
+<input type="radio" name="teaAct" value="1">Tea Act of 1773
+</label><br/>
+<label>
+<input type="radio" name="teaAct" value="0">Tea Tree Act of 1775
+</label><br/>
+<label>
+<input type="radio" name="teaAct" value="0">Super Tea of 1774
+</label><br/>
+<label>
+<input type="radio" name="teaAct" value="0">Revolutionary Tea
+</label><br/>
+<br/>
+
+<p>2. When Britain did not enforce their Navigation Acts from 1650 to 1763, this was an example of 
+</p>
+<label>
+<input type="radio" name="salutaryNeg" value="0">Virtual Representation
+</label><br/>
+<label>
+<input type="radio" name="salutaryNeg" value="0">Mercantilism
+</label><br/>
+<label>
+<input type="radio" name="salutaryNeg" value="1">Salutary Neglect
+</label><br/>
+<label>
+<input type="radio" name="salutaryNeg" value="0">Abuse and Usurpation
+</label><br/>
+</br>
+
+<p>3. The French and Indian War ended with the Treaty of Paris. The French gave up all of Canada and all French territory east of the _____________________.
+</p>
+<label>
+<input type="radio" name="missRiver" value="0">Rocky Mountains
+</label></br>
+<label>
+<input type="radio" name="missRiver" value="0">Atlantic Ocean
+</label></br>
+<label>
+<input type="radio" name="missRiver" value="0">Appalachian Mountains
+</label></br>
+<label>
+<input type="radio" name="missRiver" value="1">Mississippi River
+<label></br>
+</br>
+
+<p>4. Pontiac's Rebellion and other Indian uprisings convinced the British that they could not effectively protect British colonists on the frontier. The Proclamation of 1763 was a British ban on colonial settlement west of the _____________________.
+</p>
+<label>
+<input type="radio" name="appalachianMts" value="0">Rocky Mountains
+</label></br>
+<label>
+<input type="radio" name="appalachianMts" value="0">Atlantic Ocean
+</label></br>
+<label>
+<input type="radio" name="appalachianMts" value="1">Appalachian Mountains
+</label></br>
+<label>
+<input type="radio" name="appalachianMts" value="0">Mississippi River
+</label></br>
+
+<p>5. The _____________________ placed a tax on most printed materials, such as newspapers, advertisements, pamphlets, legal documents, and playing cards. In the past, colonists had accepted taxes.
+</p>
+<label>
+<input type="radio" name="stampAct" value="0">Signature Act
+</label></br>
+<label>
+<input type="radio" name="stampAct" value="1">Stamp Act
+</label></br>
+<label>
+<input type="radio" name="stampAct" value="0">Document Act
+</label></br>
+<label>
+<input type="radio" name="stampAct" value="0">Sugar Act
+</label></br>
+
+<p>6. During the American Revolution, the Continental Army won most of the battles against Great Britain's Red Coat Army.
+</p>
+<label>
+<input type="radio" name="battles" value="0">True
+</label></br>
+<label>
+<input type="radio" name="battles" value="1">False
+</label></br>
+
+<p>7. During the Boston Massacre, when angry colonists were throwing snowballs and yelling insults, Samuel Adams opened fire on the crowd. 
+</p>
+<label>
+<input type="radio" name="bostMass" value="0">True
+</label></br>
+<label>
+<input type="radio" name="bostMass" value="1">False
+</label></br>
+
+<p>8. The battle of Lexington & Concord started when British ships arrived in the Boston harbor with tea. 150 colonists boarded the ships and dumped 342 chests of tea into the harbor.  
+</p>
+<label>
+<input type="radio" name="teaParty" value="0">True
+</label></br>
+<label>
+<input type="radio" name="teaParty" value="1">False
+</label></br>
+
+<p>9. The Patriot victory at Saratoga is often seen as the turning point of the war. It renewed morale of the American public and convinced potential allies, such as France, that American could win the war. 
+</p>
+<label>
+<input type="radio" name="saratoga" value="1">True
+</label></br>
+<label>
+<input type="radio" name="saratoga" value="0">False
+</label></br>
+
+<p>10. The Declaration of Independence states that "all men are created equal", and that some of their God given rights include life, liberty and the pursuit of happiness.  
+</p>
+<label>
+<input type="radio" name="declIndep" value="1">True
+</label></br>
+<label>
+<input type="radio" name="declIndep" value="0">False
+</label></br>
+</br></br>
+
+<label>
+<input type="submit"/>
+</label>
+<label>
+<input type="reset"/>
+</label>
+
+<h3>Your score is:  <span id="score">___</span> /10</h3>
+
+<script>
+document.getElementById("formQuizRev").onsubmit=function(){
+	teaAct = parseInt(document.querySelector('input[name = "teaAct"]:checked').value);
+	salutaryNeg = parseInt(document.querySelector('input[name = "salutaryNeg"]:checked').value);
+	missRiver = parseInt(document.querySelector('input[name = "missRiver"]:checked').value);
+	appalachianMts = parseInt(document.querySelector('input[name = "appalachianMts"]:checked').value);
+	stampAct = parseInt(document.querySelector('input[name = "stampAct"]:checked').value);
+	battles = parseInt(document.querySelector('input[name = "battles"]:checked').value);
+	bostMass = parseInt(document.querySelector('input[name = "bostMass"]:checked').value);
+	teaParty = parseInt(document.querySelector('input[name = "teaParty"]:checked').value);
+	saratoga = parseInt(document.querySelector('input[name = "saratoga"]:checked').value);
+	declIndep = parseInt(document.querySelector('input[name = "declIndep"]:checked').value);
+	
+	result = teaAct + salutaryNeg + missRiver + appalachianMts + stampAct + battles + bostMass + teaParty + saratoga + declIndep;
+	
+	document.getElementById("score").innerHTML = result;
+	
+	return false;
+}
+</script>
+
+</form>
+
+<!-- This is an example of how to hook a form to send e-mail to a friend to share. Could share the score of quiz. This form shares a website with 5 people. 
+Form
+<div class="email1">
+<form method="post" action="friends.php">
+email address of friend 1:<br>
+<input name="email[]" type="text" size="55"><br>
+<br>
+email address of friend 2:<br>
+<input name="email[]" type="text" size="55"><br>
+<br>
+email address of friend 3:<br>
+<input name="email[]" type="text" size="55"><br>
+<br>
+email address of friend 4:<br>
+<input name="email[]" type="text" size="55"><br>
+<br>
+email address of friend 5:<br>
+<input name="email[]" type="text" size="55"><br>
+<br>
+your name:<br>
+<input name="sendername" type="text" size="55"><br>
+<br>
+<input type="submit" value="send" name="Send" id="Send"/>
+</form>
+
+php code
+$msg = "a message";
+$subject = "a subject";
+mail($_POST['email1'], $subject,$msg,'From: ' . $_POST['sendername'] . "\n\r" );
+mail($_POST['email2'], $subject,$msg,'From: ' . $_POST['sendername'] . "\n\r" );
+mail($_POST['email3'], $subject,$msg,'From: ' . $_POST['sendername'] . "\n\r" );
+mail($_POST['email4'], $subject,$msg,'From: ' . $_POST['sendername'] . "\n\r" );
+mail($_POST['email5'], $subject,$msg,'From: ' . $_POST['sendername'] . "\n\r" );
+-->
+<hr style="width:80%; height:5px;"/>
+<p style="text-align:center"> For more information on the American Revolution, go to
+<a href="https://www.history.com/topics/american-revolution">History.com</a>
+</p>
+<!-- Mark Bahr, 05/20/2019. THis code validates to HTML5-->
+<p class="small">&copy; 2019 Authentic Audio, LLC</p>
+
+</body>
+</html>

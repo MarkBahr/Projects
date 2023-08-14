@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    color: #333;
+    background-image: linear-gradient(to top left, #16471b 0%, #2e8abf 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+h1 {
+	font-size: 35px;
+    color: #1d3c70;
+    text-align: center;
+    width: 50%;
+}
+
+h2 {
+    font-size: 25px;
+    color: #1d3c70;
+    text-align: center;
+    margin: 10px;
+}
+
+.lost {
+	color:rgb(231, 20, 20);
+	font-size: 15px;
+}
+
+.button {
+	color: rgb(146, 143, 143);
+	font-size: 70px;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    padding: 5px;
+}
+
+main {
+    position: relative;
+    width: 70rem;
+    height: 74rem;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    overflow: hidden;
+    display: flex;
+}
+
+.first-row {
+    width: 661px;
+    align-self: center;
+}
+
+.last-row {
+    width: 661px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    margin: 10px;
+    width: 652px;
+}
+
+.hidden {
+	display: none;
+  }
+
+body {
+    background-color: rgb(102, 181, 233);
+}
+
+.image {
+    width: 136px;
+    height: 136px;
+}
+
+.box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 672px;
+    height: 600px;
+}
+
+.player {
+    padding: 0.7rem 2.5rem;
+    border-radius: 50rem;
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.player--0 {
+
+}
+
+.player--1 {
+
+}
+
+.match {
+    font-size: 20px;
+    color:rgb(39, 103, 146);
+}
+
+.player--active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+table {
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.score {
+    font-size: 40px;
+    color:rgb(39, 103, 146);
+}
+
+.results {
+    font-size: 17px;
+    color:rgb(32, 80, 112);
+}
+
+.correct {
+    font-size: 30px;
+    color:#f7f45d;  
+}
+
+.incorrect {
+    font-size: 30px;
+    color:rgb(245, 153, 48);
+}
+
+.btn {
+    margin-left: 4%;
+    margin-right: 4%;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: none;
+    font-family: inherit;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+
+    padding: 0.7rem 2.5rem;
+    border-radius: 50rem;
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.check-match {
+    background-color: #f7f45d;
+    padding: 1.5rem 3.5rem;
+}
+
+.new-game {
+    margin-left: 11%;
+}
+
+.found {
+    background-color: #f7f45d;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    filter: blur(0.8px);
+}
+
+.random {
+    width: 135px;
+}

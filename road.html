@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf8"/>
+<meta name="keywords" content="C++, Programming, Road Construction, Software Developer, Console"/>
+<meta name="author" content="Mark Bahr"/>
+<link href="image/style.css" type="text/css" rel="stylesheet">
+<title>Road Building Costs in C++</title>
+</head>
+
+<body>
+
+<!-- Navbar Components-->
+<div class="navbar">
+	<a href="index.html">Home</a>
+	<!-- <a href="sql.html">SQL</a> -->
+	<div class="dropdown">
+		<button class="dropbtn">Web Apps
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="matching-game/index.html">Matching Game: U.S. Presidents</a>
+			<a href="pig-game/index.html">Pig Game</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Web
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="history.html">Revolution Quiz</a>
+			<a href="art.html">Art Gallery</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Console
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<!-- <a href="vacation.html">Vacation Planner (Java)</a> -->
+			<a href="shoppingbill.html">Shopping Calculator (Java)</a>
+			<a href="road.html">Road Building Costs (C++)</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">GUI
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="todolist.html">To Do List (JavaFX)</a>
+			<!-- <a href="matchinggame.html">Super Matching Game (Java)</a>
+			<a href="wguproject.html">WGU C++ Project</a> -->
+		</div>
+	</div>
+</div>
+
+<header>
+<h1>New Road Cost Estimator</h1>
+<h2>C++ Console Output</h2>
+</header>
+
+<h3>Roads Needed!</h3>
+
+<img class="percent" alt="Road" src="image/RoadWeb.png">
+
+<p>
+Imagine if your great uncle Ernie left you an inheritance 16,000 acres of woodlands! Would you build a cabin? Or, would build a 
+new neighborhood of homes? Either way, you're going to need a road to access what you decide to build. In addition, if there are
+any rivers or bayous to cross, then you'll also need a bridge.  
+</p>
+</br>
+
+<h3>Building Costs</h3>
+
+<p>
+While planning any building project, it's a good idea to estimate costs. Let us say that a ficticious road building company called Countryside Roads, LLC charges an initial fixed cost of 
+$1,000 to start any road project. They also charge an additoinal amount depending on the length of the road. The variable costs for the lengths of road are:
+<table>
+	<tr>
+		<th>Road Length</th>
+		<th>Cost Per Mile</th>
+	</tr>
+	<tr>
+		<td>Less than 1 mile</td>
+		<td>$2,500,000</td>
+	</tr>
+	<tr>
+		<td>1-5 miles</td>
+		<td>$2,250,000</td>
+	</tr>
+	<tr>
+		<td>Over 5 miles</td>
+		<td>$1,900,000</td>
+	</tr>
+</table>
+</p>
+
+<p>
+While that sounds like an arm and a leg to build a road, building bridges costs even more! If you want to build a bridge, Countryside Roads
+charges a fixed cost of $5,000 for any bridge project and then an additional amount per foot of bridge:
+
+<table>
+	<tr>
+		<th>Bridge Length</th>
+		<th>Cost Per Foot</th>
+	</tr>
+	<tr>
+		<td>Less than 100ft</td>
+		<td>$1,500</td>
+	</tr>
+	<tr>
+		<td>100-500ft</td>
+		<td>$1,300</td>
+	</tr>
+	<tr>
+		<td>Over 500ft</td>
+		<td>$1,100</td>
+	</tr>
+</table>
+<img class="percent" alt="River Width" src="image/widthRiver.png">
+</p>
+</br>
+  
+<h3>The Width of a River</h3>
+
+<p>
+Let's say your little plot of land has a wide river going right through it. You will need to calculate the distance across the river. 
+Countryside Roads has a method for doing this easily. You must first measure the distance between two points on one side of the river. 
+As seen in the drawing, you can call these two points A and B. From point A, choose a marker directly across the river so 
+that the marker is at a 90 degree angle from the line AB. Then measure the angle from point B to the marker. You can estimate the 
+distance across the river with these measurements.
+</p>
+</br>
+
+<h3>Writing the code</h3>
+
+<p>
+With these costs and measurements methods in place, Countryside Roads would probably want a computer program that calculates these costs for them. This can easily 
+be done in C++. While the width of the river sounds a little complex, it was actually quite simple. It took me only one line of code with the 
+help of trigonometry. Figuring out how to code what to charge for the different lengths of roads or bridges was a little more lengthy, but still 
+not difficult. I used if-else statements to determine which variable cost to use. When calculating distances, I declared variables using the 
+double type, and for expenses I used long double just incase any very long numbers were needed. I also added another useful calculation; the 
+total distance of roads and bridges built. Lastly, of course, I used cout to print to the console and cin to get input form the user. 
+</p>
+</br>
+
+<h3>Running the Code</h3>
+
+<p>
+Here's an example of what it looked like to run the code:
+</p>
+<p class="indent">Welcome to Road Costs Estimator!</br>
+Enter your first name:</br> 
+Bill</br>
+Bill, in order to estimate your costs, you will need to enter the number of miles your road will cover on both land and water.</br>
+For estimating distances over water, you must follow the instructions in the Road Costs Guide.</br>
+Enter the distance between the two points on one side of the river (in feet): </br>
+100</br>
+Enter the angle from the second point to the marker across the river: </br>
+85</br>
+Width of the river (in feet): 1143</br>
+The cost to build your bridge will be 1.2623 million dollars.</br>
+Enter the number of miles the road will cover on land: </br>
+4</br>
+The cost to build your roads on land will be 9.001 million dollars.</br>
+The total cost of your building projects will be 10.2633 million dollars.</br>
+The total distance of the planned road and bridge 4.21648 miles!
+</p>
+</br>
+
+<h3>Code for the Cost Estimator</h3>
+
+<p>
+The C++ program I wrote to do these calculations is written as follows: 
+</p>
+
+<textarea readonly>
+#include <cstdlib>
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Estimates the cost of building a road and bridge. 
+ 
+int main() {
+    string firstName; // User's first name.
+    double widthRiverFt = 0.0; // Width of the river in feet.
+    double distPoints = 0.0; // Distance between two points on the bank of the river. 
+    double angleAcross = 0.0; // Angle from 2nd point to marker across the river.
+    double widthRiverMi = 0.0; // Width of the river in miles.
+    long double bridgeCost = 0.0; // Cost of the bridge.
+    double landDist = 0.0; // Number of miles the road covers on land.
+    long double landCost = 0.0; // Cost of the road over land.
+    long double totalCost = 0.0; // Total cost of all road and bridge together.
+    double totalRoadDist = 0.0; // Total distance covered by the road.
+          
+    
+    cout << "Welcome to Road Costs Estimator!" << endl; // Welcome the user.
+    cout << "Enter your first name: " << endl; // Ask for the user's name.
+    cin >> firstName; // Accept the user's keyboard input.
+    
+    cout << firstName << ", in order to estimate your costs, you will need to enter the number of miles your road will cover on both land and water." << endl;
+    cout << "For estimating distances over water, you must follow the instructions in the Road Costs Guide." << endl;
+    
+    // Ask the user for the information necessary to calculate the width of the river.
+    cout << "Enter the distance between the two points on one side of the river (in feet): " << endl;
+    cin >> distPoints;
+    cout << "Enter the angle from the second point to the marker across the river: " << endl;
+    cin >> angleAcross;
+    
+    // Calculate the width of the river in feet.
+    widthRiverFt = (distPoints * (tan(((angleAcross)*6.283185)/360)));
+    
+    // Calculate cost in millions for different lengths of bridges
+    if (widthRiverFt < 100) {
+        bridgeCost = (0.005 + (.00150 * widthRiverFt));
+    } else if (widthRiverFt > 500) {
+        bridgeCost = (0.005 + (.00110 * widthRiverFt));
+    } else {
+        bridgeCost = (0.005 + (.00130 * widthRiverFt));
+    }
+           
+    // Tell the user the river's width and the cost of the bridge. 
+    cout << "Width of the river (in feet): " << widthRiverFt << endl;
+    cout << "The cost to build your bridge will be " << bridgeCost << " million dollars." << endl;
+          
+    // Ask the user to enter the distance covered on land.
+    cout << "Enter the number of miles the road will cover on land: " << endl;
+    cin >> landDist;
+   
+    // Calculate the cost in millions to build the road on land.
+    if (landDist < 1) {
+        landCost = (0.001 + (landDist * 2.5));
+    } else if (landDist > 5) {
+        landCost = (0.001 + (landDist * 1.9));
+    } else {
+        landCost = (0.001 + (landDist * 2.25));
+    }
+    
+    // Tell the user the cost of the road on land.
+    cout << "The cost to build your roads on land will be " << landCost << " million dollars." << endl;
+              
+    // Calculate the total cost in millions by combining the costs of the bridge and land roads.
+    totalCost = (bridgeCost + landCost);
+    
+    // Tell the user how much it will cost to build the road and bridge combined.
+    cout << "The total cost of your building projects will be " << totalCost << " million dollars." << endl;
+        
+    widthRiverMi = (widthRiverFt/5280); // Calculate the width of the river in miles. 
+    totalRoadDist = (landDist + widthRiverMi); // Calculate the total distance of the bridge and road.
+    
+    // Tell the user how many miles the total project will cover.
+    cout << "The total distance of the planned road and bridge " << totalRoadDist << " miles!" << endl;
+    
+    return 0;
+}
+</textarea>
+</br>
+
+<hr style="width:80%; height:5px;"/>
+<p style="text-align:center"> For more information on C++, see the tutorials at 
+<a href="https://www.learncpp.com">LearnCpp.com</a>
+</p>
+<!-- Mark Bahr, 05/20/2019. THis code validates to HTML5-->
+<p class="small">&copy; 2019 Authentic Audio, LLC</p>
+
+</body>
+
+</html>

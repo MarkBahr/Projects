@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf8"/>
+<meta name="keywords" content="Java, JavaFX, To do list, Software Developer, GUI"/>
+<meta name="author" content="Mark Bahr"/>
+<link href="image/style.css" type="text/css" rel="stylesheet">
+<title>To Do List App in JavaFX</title>
+</head>
+
+<body>
+
+<!-- Navbar Components-->
+<div class="navbar">
+	<a href="index.html">Home</a>
+	<!-- <a href="sql.html">SQL</a> -->
+	<div class="dropdown">
+		<button class="dropbtn">Web Apps
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="matching-game/index.html">Matching Game: U.S. Presidents</a>
+			<a href="pig-game/index.html">Pig Game</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Web
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="history.html">Revolution Quiz</a>
+			<a href="art.html">Art Gallery</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Console
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<!-- <a href="vacation.html">Vacation Planner (Java)</a> -->
+			<a href="shoppingbill.html">Shopping Calculator (Java)</a>
+			<a href="road.html">Road Building Costs (C++)</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">GUI
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="todolist.html">To Do List (JavaFX)</a>
+			<!-- <a href="matchinggame.html">Super Matching Game (Java)</a>
+			<a href="wguproject.html">WGU C++ Project</a> -->
+		</div>
+	</div>
+</div>
+
+<header>
+<h1>To Do List</h1>
+<h2>Using JavaFX</h2>
+</header>
+	
+<article>
+<h3>Who Has Time for That?</h3>
+<p class="article">"How do you stay so organized?" Your friend Richard asks. </br> You answer: "I created my to do list app." </br> Richard laughs. "Who has time to make a to do list app?"
+</p>
+
+<h3>Done Completely in Code</h3>
+
+<p class="article">
+I learned a good deal doing this project due to the fact that I made this application using code only. In order to better understand the JavaFX code, I studied dozens of tutorials on JavaFX and as well as a one of Oracle's detailed books on Java. That made it possible for me to actually think up my own project and write the code. I custom designed this very simple to do list app with SMART goals in mind. I called the application Task Tracker 1.0 (You can see this title at the top of the window pane). In the rest of this page, I have included images and explanations of how Task Tracker 1.0 works. The entire code is included in a scrolling text box as well.  
+</p>
+
+<h3>Visual Layout</h3>
+<p class="article">I used the NetBeans IDE 8.2 to run and test Task Tracker 1.0. I named the public class JavaFXDoGood. JavaFXDoGood starts with 22 imports to access libraries and uses a primary stage that contains one scene. Within the scene, the VBox component contains the other layout components including a menu bar, a label, a table with six columns, and a horizontal row at the bottom. The horizontal row contains six text fields, and an add button. When JavaFXDoGood is run, the stage looks like this: 
+</p>
+<img class="todo" alt="Running My To Do List App" src="image/firstOpened_toDoList.png"><br/>
+</br>
+
+<h3>Editable Table</h3>
+<p class="article">While the two example tasks are helpful in modeling how you could detail your tasks, the user will want to erase or change them. With a double-click, the text can be edited or erased. In order to keep the text you enter, you must press enter. This feature was added by calling the setEditable() control.   
+</p>
+<img class="todo" alt="Running My To Do List App" src="image/EditableTable.png"><br/>
+</br>
+
+<h3>Add Rows</h3>
+<p class="article">To add a task, simply enter the desired text in the text field boxes at the bottom and press the "Add" button. In order for the table to accept the text, each column uses setters and getters along with an action event and an event handler to access the information from the text fields. 
+</p>
+<img class="todo" alt="Running My To Do List App" src="image/AddRows_TextFields.png"><br/>
+</br>
+
+<h3>File Menu</h3>
+<p class="article">The menu bar has a file menu, which includes (as is seen below) the ability to access the open, save as, and print dialogue windows. This functionality is enabled by the fileChooser class, which is called in an EventHandler for each action.  
+</p>
+<img class="todo" alt="Running My To Do List App" src="image/FileMenu.png"><br/>
+</br>
+
+<h3>Open and Save As</h3>
+<p class="article">In order for the open and save as dialogue windows to open, I added getters in a private class for both open and save as. 
+</p>
+<img class="todo" alt="Running My To Do List App" src="image/SaveAsWindow.png"><br/>
+</br>
+
+<h3>Code for the To Do List</h3>
+<p class="article">
+The project JavaFXDoGood (below), includes comments that explain what each block of code does. These comments come after double forward-slashes. // 
+</p>
+
+<textarea readonly>
+package javafxdogood;
+
+import javafx.application.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.geometry.Insets;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+import javafx.event.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.print.PrinterJob;
+
+
+/**
+ *
+ * @author Bahr
+ */
+public class JavaFXDoGood extends Application {
+    
+    private final TableView<Task> tableChron = new TableView<Task>();
+    private final ObservableList<Task> data =
+        FXCollections.observableArrayList(
+        new Task("Wash car (example 1)", "Saturday", "8:00am", "Monthly", "Dad", "Squeaky clean"),
+        new Task("Java project (example 2)", "Mon & Wed", "6:00am", "Apr 23", "Professor Lambda", "Use JavaFX, git & command line"));
+        
+    final HBox hb = new HBox();
+    Label response;
+    
+    private Desktop desktop = Desktop.getDesktop();
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+    @Override
+    public void start(Stage primaryStage) {
+        
+        //To create: Add check box next to each task you add, delete and edit buttons, add a week and month view, and a menu on top so you can save different copies. 
+                
+        VBox vBox1 = new VBox(); // Create new vertical box.
+	Scene scene1 = new Scene(vBox1); // Create scene1.
+	vBox1.setSpacing(7); // Spacing for box.
+	
+        response = new Label("Menu");
+        
+	MenuBar menuBar = new MenuBar();
+        
+        Menu fileMenu = new Menu("_File"); // Alt-f shortcut for file 
+        MenuItem open = new MenuItem("Open...");
+        MenuItem save = new MenuItem("Save As...");
+        MenuItem print = new MenuItem("Print...");
+        MenuItem exit = new MenuItem("Exit");
+        SeparatorMenuItem separator = new SeparatorMenuItem();
+               
+        fileMenu.getItems().add(open);
+        fileMenu.getItems().add(save);
+        fileMenu.getItems().add(print);
+        fileMenu.getItems().add(separator);
+        fileMenu.getItems().add(exit);
+                        
+        menuBar.getMenus().add(fileMenu);
+        
+        // Create one event handler that will handle menu action events.
+        EventHandler<ActionEvent> MEHandler = 
+                new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                String name = ((MenuItem)ae.getTarget()).getText();
+ 
+                // if Exit is chosen, the program is  terminated.
+                if(name.equals("Exit")) Platform.exit();
+ 
+                response.setText( name + " selected");
+            }
+        };
+        
+        open.setOnAction(MEHandler);
+        save.setOnAction(MEHandler);
+        print.setOnAction(MEHandler);
+        exit.setOnAction(MEHandler);
+        
+        final FileChooser fileChooser = new FileChooser();
+                        
+        open.setOnAction(
+                new EventHandler<ActionEvent>(){
+                    @Override
+                    public void handle(final ActionEvent e) {
+                        File opensFile = fileChooser.showOpenDialog(primaryStage);
+                        if (opensFile != null) {
+                            openFile(opensFile);
+                        }
+                    }
+                
+                });
+        
+        save.setOnAction(
+                new EventHandler<ActionEvent>(){
+                    @Override
+                    public void handle(ActionEvent e) {
+                        File savesFile = fileChooser.showSaveDialog(primaryStage);
+                        if (savesFile != null) {
+                            saveFile(savesFile);
+                        }
+                    }
+                    
+                });
+        
+        // Allow a clicks on the print menuItem to open the print dialogue box.
+        print.setOnAction(
+                new EventHandler<ActionEvent>(){
+                    @Override
+                    public void handle(ActionEvent e) {
+                        PrinterJob job = PrinterJob.createPrinterJob();
+                        if (job != null) {
+                            boolean showPrintDialog = job.showPrintDialog(primaryStage.getOwner());
+                            if(showPrintDialog){
+                                job.endJob();
+                            }
+                        }
+                    }
+                });
+                                      
+        final Label label = new Label("To Do List"); // Main window heading label.
+	label.setFont(new Font("Arial", 18));
+        label.setPadding(new Insets(10, 10, 10, 10));
+        
+        tableChron.setEditable(true);
+        
+        // Column headings in the tableChron.
+	TableColumn taskCol = new TableColumn("Task");
+	TableColumn dayCol = new TableColumn("Day");
+        TableColumn timeCol = new TableColumn("Time");
+        TableColumn deadlineCol = new TableColumn("Deadline");
+	TableColumn mentorCol = new TableColumn("Mentor");
+	TableColumn descriptionCol = new TableColumn("Task Description");
+                
+        taskCol.setCellValueFactory(
+            new PropertyValueFactory<Task, String>("Task"));
+        taskCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        taskCol.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<Task, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Task, String> t) {
+                    ((Task) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setToDo(t.getNewValue());
+                }
+            }
+        );
+        
+        dayCol.setCellValueFactory(
+            new PropertyValueFactory<Task, String>("Day"));
+        dayCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        dayCol.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<Task, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Task, String> t) {
+                    ((Task) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setDay(t.getNewValue());
+                }
+            }
+        );
+        
+        timeCol.setCellValueFactory(
+            new PropertyValueFactory<Task, String>("Time"));
+        timeCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        timeCol.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<Task, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Task, String> t) {
+                    ((Task) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setTime(t.getNewValue());
+                }
+            }
+        );
+        
+        deadlineCol.setCellValueFactory(
+            new PropertyValueFactory<Task, String>("Deadline"));
+        deadlineCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        deadlineCol.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<Task, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Task, String> t) {
+                    ((Task) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setDeadline(t.getNewValue());
+                }
+            }
+        );
+        
+        mentorCol.setCellValueFactory(
+            new PropertyValueFactory<Task, String>("Mentor"));
+        mentorCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        mentorCol.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<Task, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Task, String> t) {
+                    ((Task) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setMentor(t.getNewValue());
+                }
+            }
+        );
+        
+        descriptionCol.setCellValueFactory(
+            new PropertyValueFactory<Task, String>("Description"));
+        descriptionCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        descriptionCol.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<Task, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Task, String> t) {
+                    ((Task) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                        ).setDescription(t.getNewValue());
+                }
+            }
+        );
+        
+        tableChron.setItems(data);
+	tableChron.getColumns().addAll(taskCol, dayCol, timeCol, deadlineCol, mentorCol, descriptionCol); // Place the column headings in tableChron.
+	// Set width
+	tableChron.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+	taskCol.setMinWidth(150);
+	dayCol.setMinWidth(70);
+        timeCol.setMinWidth(60);
+	deadlineCol.setMinWidth(60);
+	mentorCol.setMinWidth(120);
+	descriptionCol.setMinWidth(200);
+
+	// Create horizontal box.
+	HBox hbox1 = new HBox();
+	hbox1.setSpacing(8);
+        hbox1.setPadding(new Insets(10, 10, 10, 10));
+        
+        // Create text fields so the user can enter new tasks into the table.
+	TextField addToDo = new TextField();
+	TextField addDay = new TextField();
+        TextField addTime = new TextField();
+        TextField addDeadline = new TextField();
+	TextField addMentor = new TextField();
+	TextField addDescription = new TextField();
+        
+        // Set initial text in fields.
+	addToDo.setText("Enter task");
+        addDay.setText("Enter day");
+        addTime.setText("Time");
+        addDeadline.setText("Deadline");
+        addMentor.setText("Give report to...");
+	addDescription.setText("Add specific descriptions");
+
+        // Set length
+        addToDo.setPrefWidth(150);
+        addDay.setPrefWidth(75);
+        addTime.setPrefWidth(65);
+        addDeadline.setPrefWidth(65);
+        addMentor.setPrefWidth(120);
+        addDescription.setPrefWidth(150);
+        
+	// Create add button. 
+	Button btnAdd = new Button("Add");
+	btnAdd.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                data.add(new Task(
+                    addToDo.getText(),
+                    addDay.getText(),
+                    addTime.getText(),
+                    addDeadline.getText(),
+                    addMentor.getText(),
+                    addDescription.getText()));
+                addToDo.clear();
+                addDay.clear();
+                addTime.clear();
+                addDeadline.clear();
+                addMentor.clear();
+                addDescription.clear();
+            }
+        });
+        
+        // Get user entry fields all in a horizontal row.
+	hbox1.getChildren().addAll(addToDo, addDay, addTime, addDeadline, addMentor, addDescription, btnAdd);
+		
+	// Get all items in a vertical, stacking format.
+	vBox1.getChildren().addAll(menuBar, label, tableChron, hbox1);
+
+	primaryStage.setWidth(750);
+	primaryStage.setHeight(500);
+	primaryStage.setTitle("Task Tracker 1.0"); // Names the window.
+	primaryStage.setScene (scene1); // Sets the scene to the stage.
+	primaryStage.show(); // Shows the stage.
+    }
+    
+    public static class Task {
+        
+        private final SimpleStringProperty todo;
+        private final SimpleStringProperty day;
+        private final SimpleStringProperty time;
+        private final SimpleStringProperty deadline;
+        private final SimpleStringProperty mentor;
+        private final SimpleStringProperty description;
+               
+        private Task(String todo1, String day1, String time1, String deadline1, String mentor1, String description1){
+            
+            this.todo = new SimpleStringProperty(todo1);
+            this.day = new SimpleStringProperty (day1);
+            this.time = new SimpleStringProperty(time1);
+            this.deadline = new SimpleStringProperty(deadline1);
+            this.mentor = new SimpleStringProperty(mentor1);
+            this.description = new SimpleStringProperty(description1);
+        }
+        
+        public String getToDo() {
+            return todo.get();
+        }
+        
+        public void setToDo(String todo1) {
+            todo.set(todo1);
+        }
+        
+        public String getDay() {
+            return day.get();
+        }
+        
+        public void setDay(String day1) {
+            day.set(day1);
+        }
+        
+        public String getTime() {
+            return time.get();
+        }
+        
+        public void setTime(String time1) {
+            time.set(time1);
+        }
+        
+        public String getDeadline() {
+            return deadline.get();
+        }
+        
+        public void setDeadline(String deadline1) {
+            deadline.set(deadline1);
+        }
+        
+        public String getMentor() {
+            return mentor.get();
+        }
+        
+        public void setMentor(String mentor1) {
+            mentor.set(mentor1);
+        }
+        
+        public String getDescription() {
+            return description.get();
+        }
+        
+        public void setDescription(String deadline1) {
+            description.set(deadline1);
+        }
+                
+    }
+    
+    private void openFile(File opensFile) {
+        try{
+            desktop.open(opensFile);
+        } catch (IOException ex) {
+            Logger.getLogger(
+                    JavaFXDoGood.class.getName()).log(
+                            Level.SEVERE, null, ex
+                    );
+        }
+    }
+    
+    private void saveFile(File savesFile) {
+        try{
+            desktop.open(savesFile);
+        } catch (IOException ex) {
+            Logger.getLogger(
+                    JavaFXDoGood.class.getName()).log(
+                            Level.SEVERE, null, ex
+                    );
+        }
+    }
+</textarea>
+
+<!--Use a big scrollable text box that contains all the code. This would help alot. 
+-->
+
+</article>
+
+<hr style="width:80%; height:5px;"/>
+<p style="text-align:center"> For more information on Java, see Oracle's  
+<a href="https://docs.oracle.com/javase/tutorial">Java Tutorials</a>
+</p>
+<!-- Mark Bahr, 05/20/2019. THis code validates to HTML5-->
+<p class="small">&copy; 2019 Authentic Audio, LLC</p>
+
+</body>
+
+</html>
