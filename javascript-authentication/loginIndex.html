@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+	<meta charset="utf8"/>
+	<meta name="author" content="Mark Bahr"/>
+	<title>Login Authentication Using JavaScript</title>
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="login.js"></script>
+</head>
+
+<body>
+	
+
+</br>
+
+<div>
+
+<header>
+<h3>(Company Logo)</h3>
+</br>
+<h1>Member Login</h1>
+</header>
+
+</br></br>
+	
+
+<form id="form_id" method="post" name="formId">
+<label>User Name: </label> </br>
+<input type="text" name="username" id="username"/>
+</br></br>
+<label>Password: </label> </br>
+<input type="password" name="password" id="password"/>
+</br></br>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+	<p>
+	<form>
+      <input type="button" value="Create New Account" onclick="niceFunction()"/>
+	 </form>
+	</p>
+	
+	<p>
+	<form>
+		<input type="button" value="Contact Us" onclick="marksFunction()"/>
+	</form>
+	</p>
+	<p id="demo1"></p>
+	<script>
+	var d = new Date(); //Current date and time.
+	document.getElementById("demo1").innerHTML = d;
+	</script>
+	
+</div>
+</body>
+
+</html>

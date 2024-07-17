@@ -1,0 +1,31 @@
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.text-container {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.center-element {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  height: 50vh;
+  width: 50vw;
+}
+
+h3 {
+  color: #8b8a8a;
+}

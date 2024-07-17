@@ -1,0 +1,30 @@
+function niceFunction() {
+   alert("I believe in Christ.");
+}
+
+function marksFunction() {
+	alert("You should read the Book of Mormon");
+}
+
+var attempt = 3; // Variable to count number of attempts.
+// Function below executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "YourUserName" && password == "YourPassword#123"){
+alert ("You are logged in.");
+window.location = ("https://gluconatekid.github.io/ProgrammingProjects/art.html"); // Redirecting to another page.
+return false;
+}
+else{
+attempt --;// Decrementing by one. 
+alert("Incorrect username or password. You have "+attempt+" attempts left;"); // This tells the user how many attempts are left.
+//After the 3rd attempt, the text fields are disabled.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
