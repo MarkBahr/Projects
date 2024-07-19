@@ -1,2 +1,3 @@
 # Projects
-This is a collection of beginner software developer projects I did when learning web development, JavaScript, Java, and other programming languages.
+
+This is a collection of software developer projects I have completed, including tools such as C++, HTML, CSS, JavaScript, and Java.
